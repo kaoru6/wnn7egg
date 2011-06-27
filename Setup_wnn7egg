@@ -1,0 +1,59 @@
+#! /bin/sh
+###    wnn7egg Setup Script
+###    (c) Copyright OMRON SOFTWARE Co., Ltd. 2001
+###    
+
+LINE1="(if (featurep 'xemacs)"
+LINE2="    (setq load-path (append '(\"/usr/share/wnn7/elisp/xemacs21\") load-path))"
+LINE3="  (setq load-path (append '(\"/usr/share/wnn7/elisp/emacs20\") load-path)))"
+LINE4="(global-set-key \"\C-\\\\\" 'toggle-input-method)"
+LINE5="(load \"wnn7egg-leim\")"
+LINE6="(if (featurep 'xemacs)"
+LINE7="    (select-input-method \"japanese-egg-wnn7\")"
+LINE8="  (set-input-method \"japanese-egg-wnn7\"))"
+LINE9="(set-language-info \"Japanese\" 'input-method \"japanese-egg-wnn7\")"
+
+FILE1="$HOME/.emacs.el"
+FILE2="$HOME/.emacs"
+
+if [ -f $FILE1 ]; then
+    FILE=$FILE1
+else
+    FILE=$FILE2
+fi
+
+echo
+echo "$FILE に wnn7egg の起動設定を自動追加します。"
+echo "書き込まれる内容は以下の通りです。"
+echo "-----------------------------------------------------------------------------"
+
+echo $LINE1
+echo $LINE2
+echo $LINE3
+echo $LINE4
+echo $LINE5
+echo $LINE6
+echo $LINE7
+echo $LINE8
+echo $LINE9
+echo "-----------------------------------------------------------------------------"
+#echo "よろしいですか？ (y/n)"
+#read ans
+#if [ "$ans" = "y" -o "$ans" = "Y" ]; then
+    echo ";;; auto defined with Setup_wnn7egg script ------------------" >> $FILE
+    echo $LINE1 >> $FILE
+    echo $LINE2 >> $FILE
+    echo $LINE3 >> $FILE
+    echo $LINE4 >> $FILE
+    echo $LINE5 >> $FILE
+    echo $LINE6 >> $FILE
+    echo $LINE7 >> $FILE
+    echo $LINE8 >> $FILE
+    echo $LINE9 >> $FILE
+
+    echo
+    echo "完了しました。"
+    echo "wnn7egg の使用方法、解説につきましては、/usr/share/wnn7/elisp/README "
+    echo "をお読み下さい。"
+#fi
+
