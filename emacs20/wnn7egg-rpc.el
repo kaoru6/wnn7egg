@@ -229,7 +229,7 @@
 	((eq c 'WNN_VECT_KANZEN)          1)
 	((eq c 'WNN_VECT_KANTAN)          1)))
 
-(defvar wnn7-dic-no-temps ?\x3f)
+(defvar wnn7-dic-no-temps #x3f)
 
 (defconst wnn7rpc-error-message
   '((Japanese .

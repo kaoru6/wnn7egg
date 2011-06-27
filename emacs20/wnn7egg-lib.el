@@ -332,7 +332,7 @@ wnn-uniq-kanji: Use only one among same kanji candidates.")
 	((eq c 'WNN_GROUP_DICT)   9)
 	((eq c 'WNN_MERGE_DICT)  10)
 	((eq c 'WNNDS_FILE_READ_ERROR) 90)))
-;;	((eq c 'DIC_NO_TEMPS)   ?\x3f))) ; cannot eval on xemacs
+;;	((eq c 'DIC_NO_TEMPS)   #x3f))) ; cannot eval on xemacs
 
 ;; Retern value of system-name may differ from hostname.
 (defconst wnn-system-name
