@@ -1297,13 +1297,7 @@ its-defrule, its-defrule-conditional, defule-select-mode-temporally を
 			(for-each* (cdr vars) body)
 			(list 'setq tvar (list 'cdr tvar))))))))
 			     
-(put 'dolist 'lisp-indent-hook 1)
-
-(defmacro dolist (pair &rest body)
-  "(dolist (VAR LISTFORM) . BODY) はVAR に順次 LISTFORM の要素を束縛し
-て BODY を実行する"
-
-  (for-each* (list pair) (cons 'progn body)))
+(eval-when-compile (require 'cl)) ;; dolist
 
 ;;;
 ;;; defrule
