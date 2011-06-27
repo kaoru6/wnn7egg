@@ -1643,7 +1643,7 @@ HINSHI and FUZOKUGO are information of preceding bunsetsu."
     (comm-format (u u u u) (wnn-const JS_YOSOKU_SET_USER_INPUTINFO) 
 		 env-id allkey 
 		 (if yosokuselect
-		     (logior userkey ?\x8000)
+		     (logior userkey #x8000)
 		   userkey))
     (wnn7rpc-get-result)))
 
